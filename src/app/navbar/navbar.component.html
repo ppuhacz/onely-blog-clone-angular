@@ -1,1 +1,39 @@
-<p>navbar works!</p>
+<nav
+  [ngClass]="{
+    'nav-404-page': is404Page(),
+    'post-page-nav': isPostsPage()
+  }"
+>
+  <div>
+    <!-- <app-breadcrumbs></app-breadcrumbs> -->
+    <span class="category-name" *ngIf="titleDisplay() !== ''">
+      <h1>{{ titleDisplay() }}</h1>
+    </span>
+    <ul>
+      <li>
+        <a routerLink="/" class="nav-link">Home</a>
+      </li>
+      <li>
+        <span class="categories-span">
+          Categories
+          <i class="material-symbols-outlined expand-icon">expand_more</i>
+        </span>
+        <ul class="categories-list">
+          <li>
+            <a routerLink="/posts/1" class="nav-link">All posts</a>
+          </li>
+          <li *ngFor="let category of data">
+            <a
+              [routerLink]="['/category', category.slug, 1]"
+              class="nav-link"
+              >{{ category.categoryName }}</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a routerLink="/authors" class="authors-list nav-link">Our team</a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -17,12 +17,27 @@ export interface Post {
 
 export interface Category {
   categoryName: string;
+  slug: string;
   posts: Post[];
 }
 
-export interface Props {
-  data?: {
-    categories: Category[];
-    posts: Post[];
-  };
+interface Question {
+  question: string;
+  answer: string;
+}
+
+export interface Author {
+  name: string;
+  title: string;
+  description?: string;
+  posts?: Post[];
+  question1: Question;
+  question2: Question;
+  question3: Question;
+}
+
+export interface Data {
+  categories: Category[];
+  posts: Post[];
+  authors: Author[];
 }

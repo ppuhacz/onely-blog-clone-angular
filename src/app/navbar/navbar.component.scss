@@ -1,0 +1,151 @@
+@import "../../variables.scss";
+nav {
+  position: relative;
+}
+
+.nav-404-page {
+  width: 100vw;
+  background-color: $darkbackground;
+  margin: 0;
+  padding: 3vh 10vw;
+
+  li {
+    list-style-type: none;
+    padding: 0;
+    line-height: 3.6vh;
+    font-size: 1.15rem;
+    font-weight: bold;
+  }
+}
+
+nav:not(.nav-404-page) {
+  width: 100vw;
+  background-color: $darkbackground;
+  margin: 0;
+  padding: 3vh 10vw;
+
+  li {
+    list-style-type: none;
+    padding: 0;
+    line-height: 3.6vh;
+    font-size: 1.15rem;
+    font-weight: bold;
+  }
+}
+
+.nav-link,
+li {
+  color: $lighttext;
+  text-decoration: none;
+  transition: ease-in-out 0.2s;
+  margin-bottom: 15px;
+
+  &:hover {
+    color: $greentext;
+  }
+}
+
+li {
+  margin-right: 30px;
+}
+
+.categories-span {
+  display: none;
+}
+
+.breadcrumbs {
+  color: $lightertext;
+  margin-bottom: 5vh;
+}
+
+.category-name {
+  span {
+    width: 80%;
+  }
+
+  h1 {
+    color: $white;
+    margin-bottom: 5vh;
+    font-size: 2rem;
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+
+    @media (min-width: 1140px) {
+      font-size: 3.5rem;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  ul {
+    li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+  }
+}
+
+@media (min-width: 1140px) {
+  .categories {
+    color: $lighttext;
+    list-style: none;
+    position: relative;
+    display: inline-block;
+  }
+
+  .categories-span {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .expand-icon {
+      color: $greentext;
+      font-size: 1rem;
+      margin-left: 8px;
+    }
+  }
+
+  ul {
+    position: relative;
+
+    li {
+      display: inline-block;
+      margin-right: 60px;
+
+      &:hover {
+        ul.categories-list {
+          display: block;
+        }
+      }
+
+      ul.categories-list {
+        display: none;
+        position: absolute;
+        z-index: 2;
+        padding: 20px 80px 20px 0;
+        background-color: $navdarkbackground;
+        border-top: 2px solid $greentext;
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% calc(100% - 60px),
+          calc(100% - 60px) 100%,
+          0 100%
+        );
+
+        li {
+          display: block;
+          margin-left: 40px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  nav:not(.nav-404-page) {
+    width: 95vw;
+  }
+}

@@ -1,0 +1,33 @@
+@import "../../variables.scss";
+.header-default {
+  position: relative;
+  background-color: $darkbackground;
+  padding: 2vh 10vw;
+  width: 100vw;
+  text-align: center;
+  z-index: 999;
+  max-width: 100%;
+
+  &.header-sticky {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100vw;
+  }
+
+  &.header-404-page {
+    width: 100%;
+  }
+
+  @media (min-width: 1600px) {
+    width: 95vw;
+
+    &.header-sticky {
+      width: 100vw;
+    }
+
+    &.header-404-page {
+      width: 100vw;
+    }
+  }
+}

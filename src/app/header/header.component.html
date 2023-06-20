@@ -1,1 +1,13 @@
-<p>header works!</p>
+<header
+  [ngClass]="{
+    'header-default': true,
+    'header-sticky': sticky,
+    'header-404-page': is404Page()
+  }"
+>
+  <div>
+    <a routerLink="/" class="nav-link">
+      <img src="../../assets/img/onely-logo.png" alt="onely logo" />
+    </a>
+  </div>
+</header>

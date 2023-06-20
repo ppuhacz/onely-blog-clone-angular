@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { GetDataService } from '../get-data.service';
+import { GetDataService } from '../services/get-data.service';
+import { Data, Post } from './home.interface';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +8,12 @@ import { GetDataService } from '../get-data.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  data: any;
-  allPosts: any;
-  recommendedPost: any;
-  threeRecentPosts: any;
-  recentKnowledgeBasePosts: any;
+  data?: Data;
+  allPosts?: Post[];
+  recommendedPost?: Post;
+  threeRecentPosts?: Post[];
+  restOfRecentPosts?: Post[];
+  recentKnowledgeBasePosts?: Post[];
   loading: boolean = true;
   constructor(private getDataService: GetDataService) {}
 
@@ -25,15 +27,11 @@ export class HomeComponent {
     )[0];
 
     this.threeRecentPosts = this.allPosts?.slice(0, 3);
+    this.restOfRecentPosts = this.allPosts?.slice(3, 9);
 
     this.recentKnowledgeBasePosts =
       this.data?.categories
         .find((category: any) => category.categoryName === 'Knowledge Base')
         ?.posts.slice(0, 3) ?? [];
-    console.log(this.loading);
-    console.log(this.getDataService.data.posts);
-    console.log('recommended', this.recommendedPost.coverImage.url);
-    console.log(this.threeRecentPosts);
-    console.log(this.recentKnowledgeBasePosts);
   }
 }
