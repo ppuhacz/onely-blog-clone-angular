@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GetDataService } from '../services/get-data.service';
+import { GetDataService } from '../services/get-data/get-data.service';
 import { Data, Post, Category } from './home.interface';
 import { scheduled, asyncScheduler } from 'rxjs';
 

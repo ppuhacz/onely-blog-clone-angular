@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { AllPostsComponent } from './all-posts/all-posts.component';
 
 // import HomePage from "../pages/home-page";
 // import CategoryPage from "../pages/category-page";
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'allposts/:page',
+    component: AllPostsComponent,
   },
 ];
 

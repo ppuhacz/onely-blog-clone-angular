@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, from, BehaviorSubject } from 'rxjs';
 import { request } from 'graphql-request';
-import { ASSETS_QUERY } from './ASSETS_QUERY';
+import { ASSETS_QUERY } from '../ASSETS_QUERY';
 import { Data } from './get-data.interface';
 
 @Injectable({

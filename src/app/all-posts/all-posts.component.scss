@@ -1,0 +1,133 @@
+@import "../../variables.scss";
+
+.all-items-container {
+  z-index: 2;
+  width: 80vw;
+  margin: {
+    top: 7.5vh;
+    left: auto;
+    right: auto;
+    bottom: 9vh;
+  }
+  text-align: center;
+
+  img {
+    max-width: 410px;
+    max-height: 230px;
+  }
+
+  span {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    line-height: 1.8rem;
+  }
+}
+
+.recent-item {
+  max-width: 420px;
+  margin: {
+    bottom: 8.5vh;
+  }
+
+  color: $text;
+
+  p {
+    color: $datetext;
+  }
+
+  &:hover {
+    color: $greentext;
+  }
+}
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+  margin: auto;
+  text-align: center;
+
+  .pagination-control {
+    display: block;
+    position: relative;
+    background-color: $darkbackground;
+    width: 125px;
+    color: $white;
+    font-size: 1rem;
+    font-weight: bold;
+
+    margin: {
+      bottom: 15vh;
+    }
+
+    &:first-child {
+      margin-right: 30px;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 100%;
+      border-bottom: 13px solid $darkbackground;
+      border-right: 13px solid transparent;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      border-top: 13px solid $darkbackground;
+      border-left: 13px solid transparent;
+    }
+
+    &:hover {
+      background-color: $greentext;
+
+      &:before {
+        border-bottom-color: $greentext;
+      }
+
+      &:after {
+        border-top-color: $greentext;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .all-items-container {
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+
+    .recent-item {
+      margin-right: 5vh;
+      max-width: 420px;
+
+      img {
+        max-width: 100%;
+        width: 420px;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .post-page-nav {
+    padding-bottom: 50px;
+    clip-path: polygon(
+      -5% -5%,
+      100% -5%,
+      100% calc(100% - 120px),
+      calc(100% - 120px) 100%,
+      0 200%
+    );
+  }
+}
