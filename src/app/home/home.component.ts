@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { GetDataService } from '../services/get-data.service';
-import { Data, Post } from './home.interface';
+import { Data, Post, Category } from './home.interface';
+import { scheduled, asyncScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -8,30 +9,50 @@ import { Data, Post } from './home.interface';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  data?: Data;
-  allPosts?: Post[];
+  private data?: Data;
+  private allPosts?: Post[];
   recommendedPost?: Post;
   threeRecentPosts?: Post[];
   restOfRecentPosts?: Post[];
   recentKnowledgeBasePosts?: Post[];
-  loading: boolean = true;
+  loading?: boolean;
+
   constructor(private getDataService: GetDataService) {}
 
-  async ngOnInit() {
-    await this.getDataService.fetchData();
-    this.data = this.getDataService.data;
-    this.allPosts = this.getDataService.data?.posts;
-    this.loading = this.getDataService.loading;
-    this.recommendedPost = this.allPosts?.filter(
-      (post: any) => post.recommendedPost === true
-    )[0];
+  ngOnInit() {
+    scheduled(this.getDataService.fetchData(), asyncScheduler).subscribe({
+      next: (data) => {
+        this.data = data;
+        console.log(data);
+        this.allPosts = this.data?.posts;
+        this.recommendedPost = this.allPosts?.find(
+          (post: Post) => post.recommendedPost === true
+        );
 
-    this.threeRecentPosts = this.allPosts?.slice(0, 3);
-    this.restOfRecentPosts = this.allPosts?.slice(3, 9);
+        this.threeRecentPosts = this.allPosts?.slice(0, 3);
+        this.restOfRecentPosts = this.allPosts?.slice(3, 9);
+        this.recentKnowledgeBasePosts =
+          this.data?.categories
+            .find(
+              (category: Category) => category.categoryName === 'Knowledge Base'
+            )
+            ?.posts.slice(0, 3) ?? [];
+      },
+      error: (error) => {
+        console.error('Error fetching data:', error);
+      },
+    });
+    scheduled(this.getDataService.getLoadingStatus(), asyncScheduler).subscribe(
+      {
+        next: (loading) => {
+          this.loading = loading;
+        },
+        error: (error) => {
+          console.error('Error getting loading status:', error);
+        },
+      }
+    );
 
-    this.recentKnowledgeBasePosts =
-      this.data?.categories
-        .find((category: any) => category.categoryName === 'Knowledge Base')
-        ?.posts.slice(0, 3) ?? [];
+    console.log(this.loading);
   }
 }

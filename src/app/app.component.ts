@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GetDataService } from './services/get-data.service';
+import { asyncScheduler, scheduled } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,24 @@ import { GetDataService } from './services/get-data.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  loading?: boolean;
   constructor(private getDataService: GetDataService) {}
 
   ngOnInit() {
-    this.getDataService.fetchData();
+    scheduled(this.getDataService.fetchData(), asyncScheduler).subscribe({
+      error: (error) => {
+        console.error('Error fetching data:', error);
+      },
+    });
+    scheduled(this.getDataService.getLoadingStatus(), asyncScheduler).subscribe(
+      {
+        next: (loading) => {
+          this.loading = loading;
+        },
+        error: (error) => {
+          console.error('Error getting loading status:', error);
+        },
+      }
+    );
   }
 }

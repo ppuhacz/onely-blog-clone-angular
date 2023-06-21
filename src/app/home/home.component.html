@@ -1,112 +1,110 @@
 <main>
-  <div *ngIf="loading === false">
-    <div class="home-page-container">
-      <section class="recommended-post-section">
-        <div class="recommended-post-container">
-          <div *ngIf="recommendedPost" class="recommended-post">
-            <div class="recommended-post-cover">
-              <a>
-                <img
-                  src="{{ recommendedPost.coverImage.url }}"
-                  alt="Post cover"
-                />
-              </a>
-            </div>
-            <div class="recommended-post-text">
-              <span>
-                <p class="recommended-post-recommended">RECOMMENDED POST</p>
-                <p class="recommended-post-date">
-                  {{ recommendedPost.date }}
-                </p>
-              </span>
-              <br />
-              <span>
-                <a
-                  ><h2 class="recommended-post-title">
-                    {{ recommendedPost.title }}
-                  </h2></a
-                >
-              </span>
-              <br />
-              <span>
-                <p class="recommended-post-excerpt">
-                  {{ recommendedPost.excerpt }}
-                </p>
-              </span>
-              <br />
-              <a class="recommended-post-read-more">
-                <span class="recommended-post-read-more-text">
-                  Read this article
-                </span>
-              </a>
-            </div>
-          </div>
-          <div *ngIf="!recommendedPost">
-            <div class="missing-recommended-post">
-              No recommended post at this moment!
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="posts">
-        <div *ngFor="let post of threeRecentPosts">
-          <a>
-            <div class="recent-post">
-              <img src="{{ post.coverImage.url }}" alt="Post cover" />
-              <span>
-                <p>{{ post.author.name }}</p>
-                <p>{{ post.date }}</p>
-              </span>
-              <span>
-                <h3>{{ post.title }}</h3>
-              </span>
-            </div>
-          </a>
-        </div>
-      </section>
-      <section *ngIf="recentKnowledgeBasePosts" class="knowledge-base">
-        <div class="knowledge-base-container">
-          <span class="knowledge-base-title">
-            <h2>Knowledge Base</h2>
-            <a class="knowledge-base-read-more">
-              <strong>More posts</strong>
+  <div class="home-page-container">
+    <section class="recommended-post-section">
+      <div class="recommended-post-container">
+        <div *ngIf="recommendedPost" class="recommended-post">
+          <div class="recommended-post-cover">
+            <a>
+              <img
+                src="{{ recommendedPost.coverImage.url }}"
+                alt="Post cover"
+              />
             </a>
-          </span>
-          <div class="knowledge-base-grid-container">
-            <a *ngFor="let post of recentKnowledgeBasePosts">
-              <div class="recent-knowledge-posts">
-                <img src="{{ post.coverImage.url }}" alt="Post cover" />
-                <span class="knowledge-base-post-info">
-                  <p>{{ post.author.name }},</p>
-                  <p>{{ post.date }}</p>
-                </span>
-                <span class="knowledge-base-post-title">
-                  <h3>{{ post.title }}</h3>
-                </span>
-              </div>
+          </div>
+          <div class="recommended-post-text">
+            <span>
+              <p class="recommended-post-recommended">RECOMMENDED POST</p>
+              <p class="recommended-post-date">
+                {{ recommendedPost.date }}
+              </p>
+            </span>
+            <br />
+            <span>
+              <a
+                ><h2 class="recommended-post-title">
+                  {{ recommendedPost.title }}
+                </h2></a
+              >
+            </span>
+            <br />
+            <span>
+              <p class="recommended-post-excerpt">
+                {{ recommendedPost.excerpt }}
+              </p>
+            </span>
+            <br />
+            <a class="recommended-post-read-more">
+              <span class="recommended-post-read-more-text">
+                Read this article
+              </span>
             </a>
           </div>
         </div>
-      </section>
-      <section class="posts">
-        <div *ngFor="let post of restOfRecentPosts">
-          <a>
-            <div class="recent-post">
-              <img src="{{ post.coverImage.url }}" alt="Post cover" />
-              <span>
-                <p>{{ post.author.name }}</p>
-                <p>{{ post.date }}</p>
-              </span>
-              <span>
-                <h3>{{ post.title }}</h3>
-              </span>
-            </div>
-          </a>
+        <div *ngIf="!recommendedPost">
+          <div class="missing-recommended-post">
+            No recommended post at this moment!
+          </div>
         </div>
-      </section>
-      <div class="show-more-posts-container">
-        <span class="show-more-posts">Show more posts</span>
       </div>
+    </section>
+    <section class="posts">
+      <div *ngFor="let post of threeRecentPosts">
+        <a>
+          <div class="recent-post">
+            <img src="{{ post.coverImage.url }}" alt="Post cover" />
+            <span>
+              <p>{{ post.author.name }}</p>
+              <p>{{ post.date }}</p>
+            </span>
+            <span>
+              <h3>{{ post.title }}</h3>
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
+    <section *ngIf="recentKnowledgeBasePosts" class="knowledge-base">
+      <div class="knowledge-base-container">
+        <span class="knowledge-base-title">
+          <h2>Knowledge Base</h2>
+          <a class="knowledge-base-read-more">
+            <strong>More posts</strong>
+          </a>
+        </span>
+        <div class="knowledge-base-grid-container">
+          <a *ngFor="let post of recentKnowledgeBasePosts">
+            <div class="recent-knowledge-posts">
+              <img src="{{ post.coverImage.url }}" alt="Post cover" />
+              <span class="knowledge-base-post-info">
+                <p>{{ post.author.name }},</p>
+                <p>{{ post.date }}</p>
+              </span>
+              <span class="knowledge-base-post-title">
+                <h3>{{ post.title }}</h3>
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="posts">
+      <div *ngFor="let post of restOfRecentPosts">
+        <a>
+          <div class="recent-post">
+            <img src="{{ post.coverImage.url }}" alt="Post cover" />
+            <span>
+              <p>{{ post.author.name }}</p>
+              <p>{{ post.date }}</p>
+            </span>
+            <span>
+              <h3>{{ post.title }}</h3>
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
+    <div class="show-more-posts-container">
+      <span class="show-more-posts">Show more posts</span>
     </div>
   </div>
 </main>

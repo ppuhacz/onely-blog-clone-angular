@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Location } from '@angular/common';
 import { Navbar } from './navbar.interface';
 import { GetDataService } from '../services/get-data.service';
+import { scheduled, asyncScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -22,9 +23,10 @@ export class NavbarComponent {
     this.path = this.location.path().split('/').slice(1);
   }
 
-  async ngOnInit() {
-    await this.getDataService.fetchData();
-    this.data = this.getDataService.data.categories;
+  ngOnInit() {
+    scheduled(this.getDataService.fetchData(), asyncScheduler).subscribe(
+      (data) => (this.data = data.categories)
+    );
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
