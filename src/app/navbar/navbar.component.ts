@@ -21,6 +21,7 @@ export class NavbarComponent {
     private getDataService: GetDataService
   ) {
     this.path = this.location.path().split('/').slice(1);
+    console.log(this.path[0]);
   }
 
   ngOnInit() {
@@ -38,7 +39,7 @@ export class NavbarComponent {
   titleDisplay(): string {
     if (this.path[0] === 'category') {
       return this.path[1].replaceAll('-', ' ');
-    } else if (this.path[0] === 'posts') {
+    } else if (this.path[0] === 'allposts') {
       return 'All posts';
     } else {
       return '';
@@ -46,7 +47,7 @@ export class NavbarComponent {
   }
 
   isPostsPage(): boolean {
-    return this.path[0] === 'category' || this.path[0] === 'posts';
+    return this.path[0] === 'category' || this.path[0] === 'allposts';
   }
 
   is404Page(): boolean {

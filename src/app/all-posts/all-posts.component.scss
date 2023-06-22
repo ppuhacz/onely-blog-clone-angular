@@ -12,6 +12,7 @@
   text-align: center;
 
   img {
+    width: 80vw;
     max-width: 410px;
     max-height: 230px;
   }
@@ -116,18 +117,5 @@
         height: auto;
       }
     }
-  }
-}
-
-@media (min-width: 1600px) {
-  .post-page-nav {
-    padding-bottom: 50px;
-    clip-path: polygon(
-      -5% -5%,
-      100% -5%,
-      100% calc(100% - 120px),
-      calc(100% - 120px) 100%,
-      0 200%
-    );
   }
 }

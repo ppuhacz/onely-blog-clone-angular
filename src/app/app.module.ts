@@ -8,9 +8,10 @@ import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AllPostsComponent } from './all-posts/all-posts.component';
+import { CategoryPostsComponent } from './category-posts/category-posts.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, NavbarComponent, FooterComponent, AllPostsComponent],
+  declarations: [AppComponent, HomeComponent, HeaderComponent, NavbarComponent, FooterComponent, AllPostsComponent, CategoryPostsComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

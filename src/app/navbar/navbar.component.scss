@@ -148,4 +148,15 @@ li {
   nav:not(.nav-404-page) {
     width: 95vw;
   }
+
+  .post-page-nav {
+    padding-bottom: 50px;
+    clip-path: polygon(
+      -5% -5%,
+      100% -5%,
+      100% calc(100% - 120px),
+      calc(100% - 120px) 100%,
+      0 200%
+    );
+  }
 }

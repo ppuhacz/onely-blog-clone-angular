@@ -103,6 +103,7 @@ export const ASSETS_QUERY = gql`
       }
       category {
         categoryName
+        slug
       }
       content {
         raw
