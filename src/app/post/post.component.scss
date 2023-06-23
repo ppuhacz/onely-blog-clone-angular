@@ -92,7 +92,15 @@
     b {
       color: $text;
     }
-
+    ul {
+      margin-bottom: calc(4vh - 15px);
+      margin-left: 45px;
+      list-style-type: none;
+      li {
+        color: $lightertext;
+        margin-bottom: 15px;
+      }
+    }
     ol {
       margin-left: 45px;
       list-style: decimal;

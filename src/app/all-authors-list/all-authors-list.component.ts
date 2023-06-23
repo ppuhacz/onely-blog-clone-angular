@@ -16,7 +16,6 @@ export class AllAuthorsListComponent {
     scheduled(this.getDataService.fetchData(), asyncScheduler).subscribe({
       next: (data) => {
         this.authorsList = data.authors;
-        console.log(this.authorsList);
       },
       error: (error) => {
         console.error('Error fetching data:', error);

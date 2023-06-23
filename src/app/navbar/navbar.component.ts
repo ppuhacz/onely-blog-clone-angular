@@ -21,7 +21,6 @@ export class NavbarComponent {
     private getDataService: GetDataService
   ) {
     this.path = this.location.path().split('/').slice(1);
-    console.log(this.path[0]);
   }
 
   ngOnInit() {

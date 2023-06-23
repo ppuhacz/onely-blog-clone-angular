@@ -26,7 +26,6 @@ export class CategoryPostsComponent {
   ) {
     this.category = this.route.snapshot.paramMap.get('category');
     this.page = this.route.snapshot.paramMap.get('page');
-    console.log(this.page);
   }
 
   ngOnInit(): void {

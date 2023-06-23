@@ -23,7 +23,6 @@ export class HomeComponent {
     scheduled(this.getDataService.fetchData(), asyncScheduler).subscribe({
       next: (data) => {
         this.data = data;
-        console.log(data);
         this.allPosts = this.data?.posts;
         this.recommendedPost = this.allPosts?.find(
           (post: Post) => post.recommendedPost === true
@@ -52,7 +51,5 @@ export class HomeComponent {
         },
       }
     );
-
-    console.log(this.loading);
   }
 }

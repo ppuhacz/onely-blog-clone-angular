@@ -29,6 +29,7 @@ $authorPostsMarginBottom: 8vh;
       color: $lighttext;
       font-size: 1.5rem;
       line-height: 2.3rem;
+      text-align: justify;
     }
 
     img {
@@ -166,7 +167,7 @@ $authorPostsMarginBottom: 8vh;
         display: flex;
         width: 25vw;
         max-width: 410px;
-        max-height: 410px;
+        margin: auto;
       }
 
       .author-header-text {

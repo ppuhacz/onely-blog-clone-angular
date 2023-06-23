@@ -21,7 +21,6 @@ export class GetDataService {
         if (this.cachedData) {
           observer.next(this.cachedData);
           observer.complete();
-          console.log('Data served from cachce');
         } else {
           request(this.apiUrl, this.dataQuery)
             .then((response) => {
@@ -29,7 +28,6 @@ export class GetDataService {
               this.loading.next(false);
               observer.next(this.cachedData);
               observer.complete();
-              console.log('Data fetched succesfully!');
             })
             .catch((error) => {
               console.error('Error fetching data:', error);
