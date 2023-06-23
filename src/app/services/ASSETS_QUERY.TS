@@ -106,7 +106,7 @@ export const ASSETS_QUERY = gql`
         slug
       }
       content {
-        raw
+        html
       }
       coverImage {
         url

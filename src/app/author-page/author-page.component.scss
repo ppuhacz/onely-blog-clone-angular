@@ -1,0 +1,177 @@
+@import "../../variables.scss";
+
+$authorHeaderWidth: 80vw;
+$authorPostsMarginTop: 13vh;
+$authorPostsMarginBottom: 8vh;
+
+.author-header-container {
+  background-color: $darkbackground;
+  padding: 5rem 0 8rem;
+
+  .author-header {
+    width: $authorHeaderWidth;
+    margin: 0 auto;
+
+    h1 {
+      padding-top: 3vh;
+      color: $white;
+      font-size: 2.8rem;
+    }
+
+    .author-title {
+      color: $lighttext;
+      font-size: 1.15rem;
+      margin-top: 1vh;
+    }
+
+    .author-description {
+      margin: 3vh 0;
+      color: $lighttext;
+      font-size: 1.5rem;
+      line-height: 2.3rem;
+    }
+
+    img {
+      display: none;
+    }
+
+    .social-media {
+      color: $limeGreen;
+      font-size: 2rem;
+      margin-right: 1rem;
+    }
+  }
+}
+
+.author-questions-container {
+  width: $authorHeaderWidth;
+  margin: 0 auto;
+
+  .question-and-answer {
+    margin: 3rem 0;
+
+    .question {
+      font-size: 1.5rem;
+      margin-bottom: 4vh;
+    }
+
+    .quote-symbol {
+      color: #3dd44f;
+      font-size: 3.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .answer {
+      position: relative;
+      padding: 5% 5%;
+      background-color: $lightbackground;
+      margin-bottom: 4vh;
+      line-height: 2rem;
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-bottom: 90px solid $white;
+        border-left: 90px solid transparent;
+      }
+    }
+  }
+}
+
+.authors-posts-container {
+  width: $authorHeaderWidth;
+  margin: $authorPostsMarginTop auto $authorPostsMarginBottom;
+
+  .authors-recent-posts {
+    margin-bottom: 8vh;
+  }
+
+  .recent-post {
+    max-width: 410px;
+    line-height: 1.8rem;
+    margin-bottom: 9vh;
+    color: $text;
+
+    p {
+      color: $datetext;
+    }
+
+    img {
+      max-width: 410px;
+      max-height: 230px;
+    }
+
+    &:hover {
+      color: $greentext;
+    }
+
+    span {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .question-and-answer {
+    .answer {
+      display: flex;
+      align-items: center;
+
+      i {
+        margin-right: 30px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .authors-posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+
+    img {
+      max-width: 100%;
+      width: 420px;
+      height: auto;
+    }
+  }
+}
+
+@media (min-width: 1171px) {
+  $authorHeaderWidth: 95vw;
+
+  .author-header-container {
+    width: $authorHeaderWidth;
+    clip-path: polygon(
+      -5% -5%,
+      100% -5%,
+      100% calc(100% - 120px),
+      calc(100% - 120px) 100%,
+      0 100%
+    );
+
+    .author-header {
+      display: flex;
+      flex-direction: row;
+
+      img {
+        display: flex;
+        width: 25vw;
+        max-width: 410px;
+        max-height: 410px;
+      }
+
+      .author-header-text {
+        padding-right: 60px;
+      }
+    }
+  }
+}

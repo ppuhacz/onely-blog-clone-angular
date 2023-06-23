@@ -1,17 +1,19 @@
 <main>
   <div class="all-items-container">
-    <a *ngFor="let post of categoryPostsToDisplay">
-      <div class="recent-item">
-        <img src="{{ post.coverImage.url }}" alt="post cover" />
-        <span>
-          <p>{{ post.author.name }},</p>
-          <p>{{ post.date }}</p>
-        </span>
-        <span>
-          <h3>{{ post.title }}</h3>
-        </span>
-      </div>
-    </a>
+    <ng-container *ngFor="let post of categoryPostsToDisplay">
+      <a routerLink="/post/{{ post.slug }}">
+        <div class="recent-item">
+          <img src="{{ post.coverImage.url }}" alt="post cover" />
+          <span>
+            <p>{{ post.author.name }},</p>
+            <p>{{ post.date }}</p>
+          </span>
+          <span>
+            <h3>{{ post.title }}</h3>
+          </span>
+        </div>
+      </a>
+    </ng-container>
   </div>
   <div class="pagination-container">
     <a>

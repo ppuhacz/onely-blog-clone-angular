@@ -1,0 +1,61 @@
+@import "../../variables.scss";
+
+.page-not-found-container {
+  background-color: $darkbackground;
+  padding: 10vw;
+
+  .page-not-found {
+    padding: 3rem 0;
+    margin: auto;
+
+    .error-name {
+      font-size: 2.8rem;
+      color: $white;
+      line-height: 3.5rem;
+      margin-bottom: 8vh;
+    }
+
+    .error-text {
+      color: $lighttext;
+      font-size: 2rem;
+      line-height: 2.5rem;
+      margin-bottom: 9vh;
+    }
+
+    a {
+      color: $greentext;
+      text-decoration: none;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-not-found-container {
+    position: relative;
+    margin: 10rem auto 5rem;
+    width: 80vw;
+    max-width: 1062px;
+    padding: 0 100px 70px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 100%;
+      border-bottom: 70px solid $darkbackground;
+      border-right: 70px solid $white;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-bottom: 70px solid $white;
+      border-right: 70px solid transparent;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-export interface Post {
+interface Post {
   id: string;
   title: string;
   date: string;
@@ -15,12 +15,6 @@ export interface Post {
   author: {
     name: string;
   };
-}
-
-export interface Category {
-  categoryName: string;
-  slug: string;
-  posts: Post[];
 }
 
 interface Question {
@@ -50,10 +44,4 @@ export interface Author {
     url: string;
   };
   socialMedia: SocialMedia;
-}
-
-export interface Data {
-  categories: Category[];
-  posts: Post[];
-  authors: Author[];
 }

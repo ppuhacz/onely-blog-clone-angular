@@ -3,6 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AllPostsComponent } from './all-posts/all-posts.component';
 import { CategoryPostsComponent } from './category-posts/category-posts.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AllAuthorsListComponent } from './all-authors-list/all-authors-list.component';
+import { AuthorPageComponent } from './author-page/author-page.component';
+import { PostComponent } from './post/post.component';
 
 // import HomePage from "../pages/home-page";
 // import CategoryPage from "../pages/category-page";
@@ -36,6 +40,22 @@ const routes: Routes = [
   {
     path: 'category/:category/:page',
     component: CategoryPostsComponent,
+  },
+  {
+    path: 'authors',
+    component: AllAuthorsListComponent,
+  },
+  {
+    path: 'author/:author',
+    component: AuthorPageComponent,
+  },
+  {
+    path: 'post/:post',
+    component: PostComponent,
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
   },
 ];
 

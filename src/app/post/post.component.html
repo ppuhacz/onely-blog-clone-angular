@@ -1,0 +1,30 @@
+<main *ngIf="post">
+  <div class="header-container">
+    <div class="post-header">
+      <h1 class="post-title">{{ post.title }}</h1>
+      <p class="post-info">
+        {{ post.author.name }} • Published: {{ post.date }}
+      </p>
+      <div class="post-cover-container">
+        <img
+          src="{{ post.coverImage.url }}"
+          alt="Post cover"
+          class="post-cover"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="post-container">
+    <div class="post-content" [innerHTML]="post.content.html"></div>
+    <div class="post-author-info">
+      <span>
+        <img src="{{ post.author.picture.url }}" alt="author" />
+        <p>
+          <a routerLink="/author/{{ post.author.slug }}">
+            See all articles by <strong>{{ post.author.name }}</strong>
+          </a>
+        </p>
+      </span>
+    </div>
+  </div>
+</main>

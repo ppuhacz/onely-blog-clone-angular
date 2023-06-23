@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { asyncScheduler, scheduled } from 'rxjs';
 import { Post, Data } from './all-posts.interface';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Location } from '@angular/common';
 import { GetDataService } from '../services/get-data/get-data.service';
 import { PaginationService } from '../services/pagination/pagination.service';
 
@@ -21,8 +20,7 @@ export class AllPostsComponent {
     private route: ActivatedRoute,
     private router: Router,
     private getDataService: GetDataService,
-    private paginationService: PaginationService,
-    private location: Location
+    private paginationService: PaginationService
   ) {
     this.path = this.route.snapshot.paramMap.get('page');
   }

@@ -46,8 +46,12 @@ export class NavbarComponent {
     }
   }
 
-  isPostsPage(): boolean {
+  isPostsOrCategoryPage(): boolean {
     return this.path[0] === 'category' || this.path[0] === 'allposts';
+  }
+
+  isPostOrAuthorPage(): boolean {
+    return this.path[0] === 'post' || this.path[0] === 'author';
   }
 
   is404Page(): boolean {

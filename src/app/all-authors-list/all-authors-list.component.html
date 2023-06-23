@@ -1,0 +1,58 @@
+<div class="all-authors-header">
+  <div class="onely-desc-container">
+    <div class="onely-desc-title">
+      <h2>Onely is a group of geeks on a mission to make the web better.</h2>
+    </div>
+    <div class="onely-desc-text">
+      <p>
+        We holistically audit your website to create a winning strategy for
+        technical optimization, and then we implement it with your team to get
+        you more revenue.
+      </p>
+    </div>
+  </div>
+</div>
+<main>
+  <div class="our-team">
+    <h2>Our Team</h2>
+  </div>
+  <div class="all-authors-container">
+    <div class="author-card" *ngFor="let author of authorsList">
+      <img src="{{ author?.picture?.url }}" alt="author" />
+      <div class="author-card-hovered">
+        <div class="author-card-hovered-info">
+          <a routerLink="/author/{{ author.slug }}">
+            <h3>{{ author.name }}</h3>
+          </a>
+          <p class="author-title">{{ author.title }}</p>
+          <p class="author-excerpt">{{ author.description }}</p>
+          <a
+            *ngIf="author.socialMedia.twitter"
+            href="{{ author.socialMedia.twitter }}"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i class="fa fa-twitter social-media"></i>
+          </a>
+          <a
+            *ngIf="author.socialMedia.instagram"
+            href="{{ author.socialMedia.instagram }}"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i class="fa fa-instagram social-media"></i>
+          </a>
+
+          <a
+            *ngIf="author.socialMedia.linkedIn"
+            href="{{ author.socialMedia.linkedIn }}"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <i class="fa fa-linkedin social-media"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,77 @@
+<main *ngIf="author">
+  <div class="author-page">
+    <div class="author-header-container">
+      <div class="author-header">
+        <div class="author-header-text">
+          <h1>{{ author.name }}</h1>
+          <p class="author-title">{{ author.title }}</p>
+          <p class="author-description">{{ author.description }}</p>
+          <span class="social-media">
+            <a
+              *ngIf="author.socialMedia.twitter"
+              href="{{ author.socialMedia.twitter }}"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="fa fa-twitter social-media"></i>
+            </a>
+            <a
+              *ngIf="author.socialMedia.instagram"
+              href="{{ author.socialMedia.instagram }}"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="fa fa-instagram social-media"></i>
+            </a>
+
+            <a
+              *ngIf="author.socialMedia.linkedIn"
+              href="{{ author.socialMedia.linkedIn }}"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="fa fa-linkedin social-media"></i>
+            </a>
+          </span>
+        </div>
+        <img src="{{ author.picture.url }}" alt="author" />
+      </div>
+    </div>
+    <div class="author-questions-container">
+      <ng-container *ngFor="let qa of getObjectValues()">
+        <div class="question-and-answer" *ngIf="qa.question && qa.answer">
+          <div class="question">
+            <h4>{{ qa.question }}</h4>
+          </div>
+          <div class="answer">
+            <i class="material-symbols-outlined quote-symbol">format_quote</i>
+            <p>{{ qa.answer }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <ng-container *ngIf="author.posts?.length">
+      <div class="authors-posts-container">
+        <div class="authors-recent-posts">
+          <h3>All posts from this author:</h3>
+        </div>
+        <div class="authors-posts">
+          <ng-container *ngFor="let post of author.posts">
+            <a routerLink="/post/{{ post.slug }}">
+              <div class="recent-post">
+                <img src="{{ post.coverImage.url }}" alt="Post cover" />
+                <span>
+                  <p>{{ author.name }}</p>
+                  <p>{{ post.date }}</p>
+                </span>
+                <span>
+                  <h3>{{ post.title }}</h3>
+                </span>
+              </div>
+            </a>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</main>

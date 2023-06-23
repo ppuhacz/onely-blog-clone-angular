@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { asyncScheduler, scheduled } from 'rxjs';
-import { Category, Data, Post } from './category-posts.interface';
+import { Data, Post } from './category-posts.interface';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Location } from '@angular/common';
 import { GetDataService } from '../services/get-data/get-data.service';
 import { PaginationService } from '../services/pagination/pagination.service';
 

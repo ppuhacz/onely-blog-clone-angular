@@ -20,11 +20,11 @@
             </span>
             <br />
             <span>
-              <a
-                ><h2 class="recommended-post-title">
+              <a routerLink="/post/{{ recommendedPost.slug }}">
+                <h2 class="recommended-post-title">
                   {{ recommendedPost.title }}
-                </h2></a
-              >
+                </h2>
+              </a>
             </span>
             <br />
             <span>
@@ -33,7 +33,10 @@
               </p>
             </span>
             <br />
-            <a class="recommended-post-read-more">
+            <a
+              routerLink="/post/{{ recommendedPost.slug }}"
+              class="recommended-post-read-more"
+            >
               <span class="recommended-post-read-more-text">
                 Read this article
               </span>
@@ -49,7 +52,7 @@
     </section>
     <section class="posts">
       <div *ngFor="let post of threeRecentPosts">
-        <a>
+        <a routerLink="/post/{{ post.slug }}">
           <div class="recent-post">
             <img src="{{ post.coverImage.url }}" alt="Post cover" />
             <span>
@@ -67,29 +70,34 @@
       <div class="knowledge-base-container">
         <span class="knowledge-base-title">
           <h2>Knowledge Base</h2>
-          <a class="knowledge-base-read-more">
+          <a
+            routerLink="category/knowledge-base/1"
+            class="knowledge-base-read-more"
+          >
             <strong>More posts</strong>
           </a>
         </span>
         <div class="knowledge-base-grid-container">
-          <a *ngFor="let post of recentKnowledgeBasePosts">
-            <div class="recent-knowledge-posts">
-              <img src="{{ post.coverImage.url }}" alt="Post cover" />
-              <span class="knowledge-base-post-info">
-                <p>{{ post.author.name }},</p>
-                <p>{{ post.date }}</p>
-              </span>
-              <span class="knowledge-base-post-title">
-                <h3>{{ post.title }}</h3>
-              </span>
-            </div>
-          </a>
+          <ng-container *ngFor="let post of recentKnowledgeBasePosts">
+            <a routerLink="/post/{{ post.slug }}">
+              <div class="recent-knowledge-posts">
+                <img src="{{ post.coverImage.url }}" alt="Post cover" />
+                <span class="knowledge-base-post-info">
+                  <p>{{ post.author.name }},</p>
+                  <p>{{ post.date }}</p>
+                </span>
+                <span class="knowledge-base-post-title">
+                  <h3>{{ post.title }}</h3>
+                </span>
+              </div>
+            </a>
+          </ng-container>
         </div>
       </div>
     </section>
     <section class="posts">
-      <div *ngFor="let post of restOfRecentPosts">
-        <a>
+      <ng-container *ngFor="let post of restOfRecentPosts">
+        <a routerLink="/post/{{ post.slug }}">
           <div class="recent-post">
             <img src="{{ post.coverImage.url }}" alt="Post cover" />
             <span>
@@ -101,7 +109,7 @@
             </span>
           </div>
         </a>
-      </div>
+      </ng-container>
     </section>
     <a routerLink="/allposts/1">
       <div class="show-more-posts-container">

@@ -1,8 +1,9 @@
 <nav
   [ngClass]="{
     'nav-404-page': is404Page(),
-    'post-page-nav': isPostsPage()
+    'post-page-nav': isPostsOrCategoryPage(),
   }"
+  *ngIf="!isPostOrAuthorPage()"
 >
   <div>
     <!-- <app-breadcrumbs></app-breadcrumbs> -->
